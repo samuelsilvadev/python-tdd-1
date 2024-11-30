@@ -4,7 +4,7 @@ import pytest
 
 
 class TestUser:
-    def test_create_an_user(serf):
+    def test_create_an_user(self):
         user_id = uuid4()
         user_name = 'Random Name'
 
