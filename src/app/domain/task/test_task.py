@@ -74,3 +74,36 @@ class TestTask:
         with pytest.raises(Exception, match="Task completed status must be a boolean."):
             Task(id=task_id, user_id=user_id, name=name,
                  description=description, completed=completed)
+
+    def test_that_task_is_marked_as_completed(self):
+        task_id = uuid4()
+        user_id = uuid4()
+        name = "task name"
+        description = "task description"
+        completed = False
+
+        task = Task(id=task_id, user_id=user_id, name=name,
+                    description=description, completed=completed)
+
+        assert task.completed == False
+
+        task.mark_as_completed()
+
+        assert task.completed == True
+
+    def test_that_task_is_marked_as_incomplete(self):
+        task_id = uuid4()
+        user_id = uuid4()
+        name = "task name"
+        description = "task description"
+        completed = False
+
+        task = Task(id=task_id, user_id=user_id, name=name,
+                    description=description, completed=completed)
+
+        assert task.completed == False
+
+        task.mark_as_completed()
+        task.mark_as_incomplete()
+
+        assert task.completed == False

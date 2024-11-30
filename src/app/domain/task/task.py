@@ -29,3 +29,9 @@ class Task:
 
         if not isinstance(self.completed, bool):
             raise Exception("Task completed status must be a boolean.")
+
+    def mark_as_completed(self):
+        self.completed = True
+
+    def mark_as_incomplete(self):
+        self.completed = False
