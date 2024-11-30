@@ -1,5 +1,5 @@
 from uuid import uuid4
-from domain.user import User
+from domain.user.user import User
 import pytest
 
 
