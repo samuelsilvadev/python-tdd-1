@@ -20,6 +20,19 @@ class TestTask:
         assert new_task.description == description
         assert new_task.completed == completed
 
+    def test_create_task_without_all_arguments(self):
+        task_id = uuid4()
+        user_id = uuid4()
+        name = "task name"
+
+        new_task = Task(id=task_id, user_id=user_id, name=name)
+
+        assert new_task.id == task_id
+        assert new_task.user_id == user_id
+        assert new_task.name == name
+        assert new_task.description == ""
+        assert new_task.completed == False
+
     def test_validate_task_id(self):
         task_id = "Invalid task id"
         user_id = uuid4()

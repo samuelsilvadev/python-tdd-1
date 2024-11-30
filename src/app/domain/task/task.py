@@ -8,7 +8,7 @@ class Task:
     description: str
     completed: bool
 
-    def __init__(self, id, user_id, name, description, completed):
+    def __init__(self, id, user_id, name, description="", completed=False):
         self.id = id
         self.user_id = user_id
         self.name = name

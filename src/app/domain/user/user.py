@@ -1,13 +1,17 @@
 from uuid import UUID
+from typing import List
+from domain.task.task import Task
 
 
 class User:
     id: UUID
     name: str
+    tasks: List[Task]
 
     def __init__(self, id, name) -> None:
         self.id = id
         self.name = name
+        self.tasks = []
         self.validate_input()
 
     def validate_input(self):
@@ -19,3 +23,6 @@ class User:
 
         if len(self.name) == 0:
             raise Exception("Name is required.")
+
+    def add_tasks(self, tasks: List[Task]):
+        self.tasks.extend(tasks)
