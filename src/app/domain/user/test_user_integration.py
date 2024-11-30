@@ -17,3 +17,15 @@ class TestUserIntegration:
         assert len(user.tasks) == 2
         assert task_1 in user.tasks
         assert task_2 in user.tasks
+
+    def test_user_remove_task(self):
+
+        user = User(id=uuid4(), name="Zeus")
+        task_1 = Task(id=uuid4(), user_id=user.id,
+                      name="learn how to program in go")
+
+        user.add_tasks([task_1])
+        user.remove_task(task_id=task_1.id)
+
+        assert len(user.tasks) == 0
+        assert task_1 not in user.tasks

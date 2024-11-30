@@ -26,3 +26,9 @@ class User:
 
     def add_tasks(self, tasks: List[Task]):
         self.tasks.extend(tasks)
+
+    def remove_task(self, task_id: UUID):
+        for task in self.tasks:
+            if task.id == task_id:
+                self.tasks.remove(task)
+                break
